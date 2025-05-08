@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  
+  useEffect(() =>{
+    const timer = setInterval(() =>{
+      setCurrentTime(new Date());
+    }, 1000);
+
+    // Cleanup function to clear the timer when component unmounts
+    return () => clearInterval(timer);
+
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Example of Virtual DOM Rendering</h1>
+      <h1>Hello World</h1>
+      <h2>Now the time is</h2>
+      <p>{currentTime.toLocaleTimeString()}</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

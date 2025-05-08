@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example of Actual Dom</title>
+</head>
+<body>
+    <h1>Example of actual dom rendering</h1>
+    <div id="displayTime"></div>
+
+    <script>
+        function updateTime(){
+            var element = '<h1>Hello World';
+            element += '<h1>Now the time is</h1>';
+            element += '<p>'+new Date().toLocaleTimeString()+'</p>';
+            document.getElementById('displayTime').innerHTML = element;
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
